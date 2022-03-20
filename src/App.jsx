@@ -8,6 +8,7 @@ import {
   useRoutes,
 } from "react-router-dom";
 import { MainLayout } from "./components";
+import ProtectedAuth from "./components/ProtectedAuth/ProtectedAuth";
 import Countries from "./pages/Countries";
 import Country from "./pages/Country";
 import Favorites from "./pages/Favorites";
@@ -25,7 +26,11 @@ function App() {
         },
         {
           path: "/countries",
-          element: <Countries />,
+          element: (
+            <ProtectedAuth>
+              <Countries />
+            </ProtectedAuth>
+          ),
         },
         {
           path: "countries/:code",
