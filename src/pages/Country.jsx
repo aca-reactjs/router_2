@@ -38,7 +38,7 @@ function Country() {
   }, [params]);
 
   function isCurrentCountryAdded() {
-    return !!JSON.parse(localStorage.getItem(faveList)).find(
+    return !!JSON.parse(localStorage.getItem(faveList))?.find(
       (el) => el === country?.cca2
     );
   }
